@@ -1,7 +1,7 @@
 from typing import List
 
 import toml
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 
 
 class Site(BaseModel):
@@ -11,13 +11,15 @@ class Site(BaseModel):
     class Config:
         anystr_strip_whitespace = True
 
-    @validator("name")
+    @field_validator("name")
+    @classmethod
     def name_not_empty(cls, value):
         if not value:
             raise ValueError("site name can not be empty")
         return value
 
-    @validator("url")
+    @field_validator("url")
+    @classmethod
     def url_has_scheme(cls, value):
         if not value.startswith(("http://", "https://")):
             raise ValueError("url must start with http:// or https://")
