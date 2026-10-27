@@ -1,0 +1,16 @@
+{
+  "changed": [
+    {
+      "file": "LinkWatch/linkwatch/config.py",
+      "line": 14,
+      "note": "Replaced @validator(\"name\") with @field_validator(\"name\") and @classmethod; updated import to field_validator"
+    },
+    {
+      "file": "LinkWatch/linkwatch/config.py",
+      "line": 20,
+      "note": "Replaced @validator(\"url\") with @field_validator(\"url\") and @classmethod; updated import to field_validator"
+    }
+  ],
+  "skipped": [],
+  "guesses": []
+}
